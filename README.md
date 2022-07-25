@@ -1,1 +1,4 @@
 # 03-password-generator
+The motivation behind this challenge was to better understand Javascript and developing complex algorithms to accomplish unique tasks. This challenge in particular was top create a random password generator, as password security is paramount in today's age of constantly increasing online presence. Users generally have uncreative passwords or variations on the same password, so this tool gives them the ability to have a completely random password to better secure an account of any sort. The different questions asked about the password's requirements allows for this tool to be flexible to whatever the password requirements of the account being created, as password requirements are not standardized. I learned how to better use Javascript, in particular the Mathrandom function and for loops. 
+
+[screenshot of project](assets/Final_product_screenshot.png)

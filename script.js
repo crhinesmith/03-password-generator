@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 
-// All of different options for the
+// All of different options for the character type
 var letters = ["a", "b", "c","d", "e", "f","g", "h", "i","j", "k", "l","m", "n", "o","p", "q", "r", "s","t", "u", "v","w", "x", "y","z"];
 
 var lettersCaps = letters.map(element => {
@@ -15,7 +15,7 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 
 function generatePassword(){
-  var finalpassword = ""
+  var finalpassword = [];
   var pwlength = window.prompt("Choose password length between 8 and 128 characters");
 
   if (pwlength < 8) {
@@ -41,22 +41,28 @@ function generatePassword(){
   var inclNumbers = window.confirm("Do you want to include numbers?");
   console.log(inclNumbers);
 
-  for (var i=0; i < pwlength;i++){
-    if (inclLower){
-      finalpassword += letters[Math.floor(Math.random()*letters.length)]
-    }
-    if(inclUpper){
-      finalpassword += lettersCaps[Math.floor(Math.random()*lettersCaps.length)]
-    }
-    if(inclSpecial){
-      finalpassword += special[Math.floor(Math.random()*special.length)]
-    }
-    if(inclNumbers){
-      finalpassword += numbers[Math.floor(Math.random()*numbers.length)]
-    }
+  var selection = [];
+
+ //creates an array based on the choices for different character types 
+  if (inclLower){
+    selection = selection.concat(letters);
   }
-console.log(finalpassword)
-return finalpassword
+  if(inclUpper){
+    selection = selection.concat(lettersCaps)
+  }
+  if(inclSpecial){
+    selection = selection.concat(special)
+  }
+  if(inclNumbers){
+    selection = selection.concat(numbers)
+  };
+
+  for (var i=0; i < pwlength;i++){
+    finalpassword.push(selection[Math.floor(Math.random()*selection.length)])
+  }
+
+
+return finalpassword.join("")
 }
 // Write password to the #password input
 function writePassword() {
